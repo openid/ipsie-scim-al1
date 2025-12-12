@@ -1,28 +1,35 @@
 ---
-title: IPSIE AL1 SCIM 2.0 Profile - draft
+title: "IPSIE AL1 SCIM 2.0 Profile"
+abbrev: "IPSIE AL1 SCIM"
+category: info
 
-ipr: none
-cat: std
-wg: IPSIE
-
-coding: us-ascii
-pi:
-  toc: yes
-  sortrefs: yes
-  symrefs: yes
-  private: yes
+docname: draft-ipsie-scim-al1-profile-latest
+submissiontype: "independent"
+number:
+date:
+v: 1
+workgroup: IPSIE Working Group
+keyword:
+  - scim
+  - ipsie
+venue:
+  group: IPSIE
+  type: Working Group
+  mail: openid-specs-ipsie@lists.openid.net
+  arch: https://openid.net/wg/ipsie/
+  github: "openid/ipsie-scim-al1"
+  latest: "https://openid.github.io/ipsie-scim-al1/draft-ipsie-scim-al1-profile.html"
 
 author:
-      -
-        ins: M. Maguire
-        name: Mark Maguire
-        org: Aujas Cybersecurity
-        email: mark.maguire@aujas.com
-      -
-        ins: J. Schreiber
-        name: Jen Schreiber
-        org: SGNL
-        email: jen@sgnl.ai
+  -
+    fullname: Mark Maguire
+    organization: Aujas Cybersecurity
+    email: mark.maguire@aujas.com
+  -
+    fullname: Jen Schreiber
+    organization: SGNL
+    email: jen@sgnl.ai
+
 normative:
   ISODIR2:
   RFC7523:
