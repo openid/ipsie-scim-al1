@@ -31,7 +31,8 @@ author:
     email: jen@sgnl.ai
 
 normative:
-  ISODIR2:
+  RFC8174:
+  RFC2119:
   RFC7523:
   RFC7643:
   RFC7644:
@@ -59,27 +60,33 @@ By adhering to this profile, organizations can implement SCIM-based integrations
 
 # Conventions and Definitions
 
-The keywords "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "MAY", and "CAN" in this document are to be interpreted as described in ISO Directive Part 2 {{ISODIR2}}. These keywords are not used as dictionary terms such that any occurrence of them shall be interpreted as keywords and are not to be interpreted with their natural language meanings.
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all capitals, as shown here.
 
 ## Terminology
 
 SCIM
+
 > The System for Cross-domain Identity Management as defined in {{RFC7643}} and {{RFC7644}}
 
 SCIM Client
+
 > An application that uses the SCIM protocol to manage identity data maintained by the service provider. The client initiates SCIM HTTP requests to
 a target service provider.
 
 SCIM Service Provider
+
 > An HTTP web application that provides identity information via the SCIM protocol.
 
 Role
+
 > TODO: Add definition
 
 Identity Service
+
 > Acts as the SCIM client, initiating all provisioning operations.
 
 Application
+
 > Acts as the SCIM service provider, hosting SCIM endpoints and processing all provisioning requests.
 
 Note: When SCIM is applied to the context of IPISIE, the Identity Service acts as the SCIM client and the Application acts as the SCIM service provider. The document will use the Role terms below for consistency between across IPSIE Profiles.
@@ -91,6 +98,7 @@ Note: When SCIM is applied to the context of IPISIE, the Identity Service acts a
 The Identity Service and Application MUST use OAuth 2.0 {{RFC6749}} for authentication and authorization of SCIM protocol.
 
 // TODO: Should this link back to SL1?
+
 // TODO: Expand Section
 
 The following requirements ensure  consistent and secure handling of access tokens and authorization server configuration:
@@ -156,6 +164,7 @@ The Application MUST allow reactivation of a deactivated user.
 User deletions are performed by the SCIM operation DELETE /Users/{id}
 
 After a user is deleted, the Application MUST allow the creation of a new user with the same username.
+
 // TODO: this could be tricky RE: maintianing the user's data
 
 #### Get All Users (GET /Users)
@@ -176,9 +185,9 @@ User searches by alternate identifier are performed via the SCIM operation: GET 
 
 Application Providers MUST support the following filter expressions:
 
-* username eq \<username\>
-* externalId eq \<externalId\>
-* emails[value eq \<email\>]
+* username eq \{username\}
+* externalId eq \{externalId\}
+* emails[value eq \{email\}]
 
 ### Group (Role) Provisioning Operations
 
@@ -227,7 +236,7 @@ The op attribute MUST contain either "add" or "remove".
 * When the op is "remove":
   * The path attribute MUST be either:
     * "members" (to remove all members)
-    * "members[value eq \<id\>]" (to remove a single member)
+    * "members[value eq \{id\}]" (to remove a single member)
   * The value attribute MUST be unspecified.
 
 ## Metadata Endpoints
